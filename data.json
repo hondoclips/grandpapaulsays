@@ -1,19 +1,12 @@
 {
   "today": {
-    "word": "Manifest",
-    "pronunciation": "man \u00b7 i \u00b7 fest",
-    "part_of_speech": "adjective",
-    "definition": "readily perceived by the senses and especially by the sense of sight",
-    "audio": "manifest.mp3"
+    "word": "Poppycock",
+    "pronunciation": "pop \u00b7 py \u00b7 cock",
+    "part_of_speech": "noun",
+    "definition": "empty talk or writing : nonsense",
+    "audio": "poppycock.mp3"
   },
   "past": [
-    {
-      "word": "Poppycock",
-      "pos": "noun",
-      "pron": "pop \u00b7 py \u00b7 cock",
-      "def": "empty talk or writing : nonsense",
-      "audio": "poppycock.mp3"
-    },
     {
       "word": "Tomfoolery",
       "pos": "noun",
