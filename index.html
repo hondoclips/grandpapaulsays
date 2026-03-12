@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grandpa Paul — Word of the Day</title>
+<meta name="description" content="I've been collecting words my whole life. My father did it. His father before him. Now I'm putting them here. One a day. Every morning. Before the world gets loud. Pull up a chair.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  background:#d9d3ca;
+  color:#111;
+  font-family:'Inter',sans-serif;
+  overflow-x:clip;
+  width:100%;
+}
+
+/* ── NAV ── */
+nav{
+  position:relative;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 56px;
+  background:#d9d3ca;
+  
+  
+  
+}
+.nav-logo{
+  text-decoration:none;
+  display:flex;flex-direction:column;line-height:1.2;
+}
+.nav-logo-title{
+  font-family:'Playfair Display',serif;
+  font-size:17px;font-weight:700;letter-spacing:1px;
+  color:#111;
+}
+.nav-logo-sub{
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
+  color:rgba(0,0,0,0.4);
+}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{
+  font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
+  color:rgba(0,0,0,0.45);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:#111}
+.nav-ig{
+  background:#111;color:#fff !important;
+  padding:9px 20px;border-radius:100px;
+  font-size:12px !important;letter-spacing:1px;
+  transition:background 0.2s !important;
+}
+.nav-ig:hover{background:#333 !important}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:120px 56px 100px;
+  position:relative;
+}
+.hero-inner{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+  width:100%;max-width:900px;
+}
+
+/* card wrapper */
+.card-wrap{
+  position:relative;
+  width:100%;max-width:640px;
+  margin-bottom:0;
+}
+
+/* 3D card face */
+.word-card-3d{
+  width:100%;
+  background:linear-gradient(145deg,#1c1c1c 0%,#111 60%,#0d0d0d 100%);
+  border-radius:24px;
+  padding:64px 56px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 60px 80px rgba(0,0,0,0.12), 0 20px 30px rgba(0,0,0,0.08);
+  transition:box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.word-card-3d:hover{
+  box-shadow:0 60px 80px rgba(0,0,0,0.16), 0 20px 30px rgba(0,0,0,0.12), 0 0 40px rgba(255,255,255,0.07), 0 0 80px rgba(255,255,255,0.04);
+  border-color:rgba(255,255,255,0.18);
+}
+
+/* gloss sweep */
+.word-card-3d::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at var(--mx,30%) var(--my,20%), rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 40%, transparent 70%);
+  pointer-events:none;
+  transition:background 0.05s;
+  border-radius:24px;
+}
+/* top edge highlight */
+.word-card-3d::after{
+  content:'';
+  position:absolute;top:0;left:5%;right:5%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  pointer-events:none;
+}
+
+/* card right side (3D edge) */
+.card-edge-right{
+  position:absolute;
+  top:4%;bottom:4%;
+  right:-10px;width:10px;
+  background:linear-gradient(180deg,#0a0a0a,#070707);
+  border-radius:0 6px 6px 0;
+  transform:rotateY(90deg) translateZ(-1px);
+  transform-origin:left center;
+}
+/* card bottom edge */
+.card-edge-bottom{
+  position:absolute;
+  left:4%;right:4%;
+  bottom:-10px;height:10px;
+  background:linear-gradient(90deg,#080808,#0a0a0a,#080808);
+  border-radius:0 0 6px 6px;
+  transform:rotateX(-90deg) translateZ(-1px);
+  transform-origin:top center;
+}
+
+.card-label{
+  font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:32px;
+}
+.card-word{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(56px,10vw,110px);
+  font-weight:900;line-height:0.95;
+  color:#ffffff;
+  margin-bottom:20px;
+  letter-spacing:-2px;
+}
+.card-pron{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-style:italic;
+  color:rgba(255,255,255,0.35);
+  margin-bottom:16px;
+}
+.card-pos-row{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:32px;
+}
+.card-pos{
+  display:inline-block;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.3);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:5px 18px;border-radius:100px;
+}
+.audio-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;
+  cursor:pointer;
+  transition:background 0.2s,transform 0.15s;
+  flex-shrink:0;
+}
+.audio-btn:hover{background:rgba(255,255,255,0.15);transform:scale(1.08)}
+.audio-btn.playing{background:rgba(255,255,255,0.18)}
+.audio-btn .icon-play{display:block}
+.audio-btn .icon-pause{display:none}
+.audio-btn.playing .icon-play{display:none}
+.audio-btn.playing .icon-pause{display:block}
+.card-def{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(16px,2vw,20px);
+  font-style:italic;
+  color:rgba(255,255,255,0.55);
+  line-height:1.7;
+  border-top:none;
+  padding-top:28px;
+}
+
+
+/* hero bottom label */
+.hero-meta{
+  display:flex;align-items:center;gap:24px;
+  margin-top:16px;
+}
+.hero-date{
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(0,0,0,0.35);font-weight:500;
+}
+.hero-dot{width:3px;height:3px;border-radius:50%;background:rgba(0,0,0,0.2)}
+
+/* load animations */
+.card-wrap{
+  opacity:0;
+  animation:cardIn 1.2s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(40px) scale(0.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.hero-meta{opacity:0;animation:fadeIn 1s ease forwards 1s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── ARCHIVE SECTION ── */
+.archive{
+  padding:100px 56px 120px;
+  background:transparent;
+}
+.section-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:48px;
+  padding-bottom:24px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,4vw,42px);font-weight:700;
+  color:#111;
+}
+.section-count{
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(0,0,0,0.35);font-weight:500;
+}
+.archive-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  max-width:1100px;margin:0 auto;
+}
+.archive-card{
+  background:linear-gradient(145deg,#1c1c1c 0%,#111 60%,#0d0d0d 100%);
+  border-radius:20px;
+  padding:40px 36px;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.08) inset,
+    0 8px 20px rgba(0,0,0,0.10),
+    0 24px 48px rgba(0,0,0,0.12);
+  cursor:pointer;
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.archive-card:hover{
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.1) inset,
+    0 8px 30px rgba(0,0,0,0.24),
+    0 40px 80px rgba(0,0,0,0.10);
+}
+.archive-num{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+  color:rgba(255,255,255,0.25);margin-bottom:10px;
+}
+.archive-word{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,2.5vw,32px);font-weight:900;color:#fff;
+  letter-spacing:-1px;line-height:0.95;
+  margin-bottom:12px;
+}
+.archive-pos{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);font-weight:500;
+  border:1px solid rgba(255,255,255,0.12);
+  display:inline-block;padding:4px 14px;border-radius:100px;
+}
+
+/* ── ABOUT SECTION ── */
+.about{
+  background:transparent;
+  padding:100px 56px;
+}
+.about-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;align-items:center;gap:80px;
+}
+.about-avatar{
+  width:240px;height:240px;flex-shrink:0;
+  background:linear-gradient(145deg,#e8e3da,#d8d3ca);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:72px;
+  border:1px solid rgba(255,255,255,0.6);
+  box-shadow:0 1px 0 rgba(255,255,255,0.8) inset, 0 20px 60px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06);
+  overflow:hidden;
+}
+.about-text .label{
+  font-size:10px;letter-spacing:5px;text-transform:uppercase;font-weight:600;
+  color:rgba(0,0,0,0.35);margin-bottom:16px;
+}
+.about-text h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,48px);font-weight:700;
+  color:#111;margin-bottom:24px;line-height:1.1;
+}
+.about-text p{
+  font-size:17px;line-height:1.8;
+  color:rgba(0,0,0,0.5);
+  margin-bottom:14px;
+}
+.about-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:16px;
+  background:#111;color:#fff;
+  padding:14px 28px;border-radius:100px;
+  text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1px;
+  transition:background 0.2s;
+}
+.about-cta:hover{background:#333}
+
+/* ── SOCIALS SECTION ── */
+.socials{
+  padding:120px 56px 240px;
+  background:transparent;
+  text-align:center;
+}
+.socials-sub{
+  font-size:15px;color:rgba(0,0,0,0.4);margin-bottom:48px;
+}
+.socials-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+  max-width:800px;margin:0 auto;
+}
+.social-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 32px;border-radius:14px;
+  text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  background:#111;color:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+  min-width:180px;justify-content:center;
+}
+.social-btn:hover{
+  transform:translateY(-3px);
+  background:#1a1a1a;
+  box-shadow:0 16px 40px rgba(0,0,0,0.08);
+  color:#fff;
+}
+.social-btn svg{flex-shrink:0;opacity:0.7}
+
+/* ── FLIP CALENDAR ── */
+.flip-clock{
+  display:flex;align-items:stretch;gap:0;
+  background:linear-gradient(145deg,#eae5dc,#ddd7ce);
+  border:2px solid #111;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,0.7) inset, 0 2px 8px rgba(0,0,0,0.09);
+}
+.flip-panel{
+  display:flex;flex-direction:column;align-items:center;
+  padding:5px 14px 7px;
+  position:relative;
+  background:transparent;
+  flex:1;
+}
+.flip-panel:first-child{
+  border-right:1px solid rgba(0,0,0,0.1);
+}
+.flip-panel-label{
+  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
+  color:rgba(0,0,0,0.4);margin-bottom:3px;
+}
+.flip-panel-value{
+  font-family:'Inter',sans-serif;
+  font-size:18px;font-weight:900;letter-spacing:1px;
+  color:#111;
+  line-height:1;
+  min-width:38px;text-align:center;
+  position:relative;
+}
+/* horizontal crease */
+.flip-panel-value::after{
+  content:'';
+  position:absolute;left:-2px;right:-2px;top:50%;
+  height:1px;background:transparent;
+  pointer-events:none;
+}
+/* flip animation */
+@keyframes flipDown{
+  0%  {transform:rotateX(0deg);opacity:1}
+  49% {transform:rotateX(-90deg);opacity:0}
+  50% {transform:rotateX(90deg);opacity:0}
+  100%{transform:rotateX(0deg);opacity:1}
+}
+.flip-panel-value.flipping{
+  animation:flipDown 0.4s ease;
+}
+
+/* ── MODAL ── */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.82);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal-card{
+  width:90%;max-width:560px;
+  background:linear-gradient(145deg,#1c1c1c 0%,#111 60%,#0d0d0d 100%);
+  border-radius:24px;
+  padding:56px 48px;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 40px 100px rgba(0,0,0,0.20);
+  transform:translateY(24px) scale(0.97);
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  text-align:center;
+}
+.modal-backdrop.open .modal-card{transform:translateY(0) scale(1)}
+.modal-card::before{
+  content:'';
+  position:absolute;top:0;left:8%;right:8%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+}
+.modal-close{
+  position:absolute;top:20px;right:20px;
+  width:32px;height:32px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+  color:rgba(255,255,255,0.5);
+  font-size:16px;line-height:1;
+}
+.modal-close:hover{background:rgba(255,255,255,0.15)}
+.modal-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:24px}
+.modal-word{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(44px,8vw,80px);font-weight:900;line-height:0.95;
+  color:#fff;margin-bottom:16px;letter-spacing:-2px;
+}
+.modal-pron{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,0.35);margin-bottom:14px}
+.modal-pos{
+  display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.12);
+  padding:5px 18px;border-radius:100px;margin-bottom:28px;
+}
+.modal-def{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(15px,2vw,18px);font-style:italic;
+  color:rgba(255,255,255,0.55);line-height:1.7;
+  border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;
+}
+
+/* ── COUNTDOWN ── */
+.countdown-section{
+  padding:100px 56px;
+  text-align:center;
+  background:transparent;
+}
+.countdown-inner{
+  max-width:600px;margin:0 auto;
+}
+.countdown-label{
+  font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:600;
+  color:rgba(0,0,0,0.35);margin-bottom:32px;
+}
+.countdown-timer{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.countdown-unit{
+  display:flex;flex-direction:column;align-items:center;
+  background:linear-gradient(145deg,#1c1c1c,#111);
+  border-radius:16px;
+  padding:28px 36px;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 8px 32px rgba(0,0,0,0.08);
+  min-width:110px;
+}
+.countdown-num{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,6vw,72px);font-weight:900;
+  color:#fff;line-height:1;letter-spacing:-2px;
+}
+.countdown-unit-label{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.3);margin-top:10px;
+}
+.countdown-colon{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,5vw,60px);font-weight:900;
+  color:rgba(0,0,0,0.2);line-height:1;margin-bottom:20px;
+}
+@media(max-width:768px){
+  .countdown-section{padding:60px 24px}
+  .countdown-unit{padding:20px 24px;min-width:80px}
+}
+
+/* ── FOOTER ── */
+footer{
+  background:#1a1714;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:36px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;
+  font-size:15px;font-weight:700;letter-spacing:1px;
+  color:rgba(255,255,255,0.3);
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,0.25);text-decoration:none;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:#fff}
+
+@media(max-width:768px){
+  nav{padding:18px 20px}
+  nav>div{gap:12px !important}
+  .nav-links{gap:0 !important}
+  .nav-links a:not(.nav-ig){display:none}
+  .flip-clock{display:none}
+  .hero{padding:100px 20px 60px}
+  .card-wrap{max-width:100%;width:100%}
+  .word-card-3d{padding:44px 28px}
+  .archive{padding:60px 20px}
+  .archive-grid{grid-template-columns:1fr;gap:12px}
+  .archive-card{padding:28px 24px}
+  .archive-word{font-size:clamp(22px,6vw,32px);overflow-wrap:break-word;word-break:break-word}
+  .about{padding:60px 20px}
+  .about-inner{flex-direction:column;gap:40px}
+  .about-avatar{width:160px;height:160px;font-size:48px}
+  .socials{padding:60px 20px 80px}
+  .social-btn{min-width:0;width:100%}
+  .socials-grid{flex-direction:column;align-items:stretch}
+  .countdown-section{padding:60px 20px}
+  .countdown-unit{padding:20px 16px;min-width:70px}
+  .countdown-num{font-size:clamp(36px,8vw,56px)}
+  footer{padding:28px 20px;flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-title">Word of the Day</span>
+    <span class="nav-logo-sub">with Grandpa Paul</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:32px">
+    <div class="nav-links" style="gap:28px">
+      <a href="#archive">Past Words</a>
+      <a href="#about">About</a>
+      <a href="#follow">Follow</a>
+    </div>
+    <div class="flip-clock" id="flip-clock">
+      <div class="flip-panel">
+        <div class="flip-panel-label">Day</div>
+        <div class="flip-panel-value" id="fc-day"></div>
+      </div>
+      <div class="flip-panel">
+        <div class="flip-panel-label">Date</div>
+        <div class="flip-panel-value" id="fc-date"></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="card-wrap" id="card-wrap">
+      <div class="word-card-3d" id="wotd-card">
+        <div class="card-label">Word of the Day</div>
+        <div class="card-word" id="card-word">Tomfoolery</div>
+        <div class="card-pron" id="card-pron">tom · fool · ery</div>
+        <div class="card-pos-row">
+          <div class="card-pos" id="card-pos">noun</div>
+          <button class="audio-btn" id="audio-btn" aria-label="Play pronunciation">
+            <svg class="icon-play" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M3 2l7 4-7 4V2z" fill="rgba(255,255,255,0.5)"/>
+            </svg>
+            <svg class="icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <rect x="2.5" y="2" width="2.5" height="8" rx="1" fill="rgba(255,255,255,0.5)"/>
+              <rect x="7" y="2" width="2.5" height="8" rx="1" fill="rgba(255,255,255,0.5)"/>
+            </svg>
+          </button>
+        </div>
+        <div class="card-def" id="card-def">playful or foolish behavior</div>
+        <div class="card-edge-right"></div>
+        <div class="card-edge-bottom"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archive" id="archive">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-header">
+      <div class="section-title">Past Words</div>
+    </div>
+    <div class="archive-grid" id="archive-grid"></div>
+    <div style="text-align:center;margin-top:48px;display:flex;justify-content:center;gap:12px;">
+      <button id="load-more-btn" style="display:none;background:#111;color:rgba(255,255,255,0.8);border:none;padding:14px 40px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#111'">See More</button>
+      <button id="load-less-btn" style="display:none;background:transparent;color:rgba(0,0,0,0.4);border:1px solid rgba(0,0,0,0.08);padding:14px 40px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.color='#111';this.style.borderColor='#111'" onmouseout="this.style.color='rgba(0,0,0,0.4)';this.style.borderColor='rgba(0,0,0,0.08)'">See Less</button>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-avatar"><img src="wizard.png" alt="Grandpa Paul" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+    <div class="about-text">
+      <div class="label">About Me</div>
+      <h2 style="display:flex;align-items:center;gap:16px;">I'm Grandpa Paul <button id="intro-btn" onclick="toggleIntro()" style="flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid #111;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Play intro"><svg id="intro-icon-play" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l7 4-7 4V2z" fill="#111"/></svg><svg id="intro-icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:none"><rect x="2.5" y="2" width="2.5" height="8" rx="1" fill="#111"/><rect x="7" y="2" width="2.5" height="8" rx="1" fill="#111"/></svg></button></h2>
+      <p>I've been collecting words my whole life. My father did it. His father before him.</p>
+      <p>Now I'm putting them here. One a day. Every morning. Before the world gets loud.</p>
+      <p>Pull up a chair.</p>
+    </div>
+  </div>
+</section>
+
+<section class="countdown-section">
+  <div class="countdown-inner">
+    <div class="countdown-label">Next word arrives in</div>
+    <div class="countdown-timer">
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-hours">00</div>
+        <div class="countdown-unit-label">Hours</div>
+      </div>
+      <div class="countdown-colon">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-minutes">00</div>
+        <div class="countdown-unit-label">Minutes</div>
+      </div>
+      <div class="countdown-colon">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-seconds">00</div>
+        <div class="countdown-unit-label">Seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="socials" id="follow">
+  <div class="socials-sub" style="margin-bottom:12px;">One word. Every morning.</div>
+  <div class="section-title" style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:#111;margin-bottom:40px;">Follow Grandpa Paul</div>
+  <div class="socials-grid">
+    <a href="https://instagram.com/with_grandpa_paul" target="_blank" class="social-btn btn-instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="#" target="_blank" class="social-btn btn-tiktok">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      TikTok
+    </a>
+    <a href="https://www.youtube.com/channel/UCQQrpEFDh2CPmZoVnNHns6w" target="_blank" class="social-btn btn-youtube">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19 31.8 31.8 0 000 12a31.8 31.8 0 00.5 5.81 3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.8 31.8 0 0024 12a31.8 31.8 0 00-.5-5.81zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+      YouTube
+    </a>
+    <a href="#" target="_blank" class="social-btn btn-facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      Facebook
+    </a>
+  </div>
+</section>
+
+
+<!-- Word Modal -->
+<div class="modal-backdrop" id="word-modal">
+  <div class="modal-card" id="modal-card">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-label">Word of the Day</div>
+    <div class="modal-word" id="modal-word"></div>
+    <div class="modal-pron" id="modal-pron"></div>
+    <div class="modal-pos" id="modal-pos"></div>
+    <div class="modal-def" id="modal-def"></div>
+    <button class="audio-btn" id="modal-audio-btn" aria-label="Play" style="margin-top:24px;">
+      <svg class="icon-play" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l7 4-7 4V2z" fill="rgba(255,255,255,0.5)"/></svg>
+      <svg class="icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2.5" y="2" width="2.5" height="8" rx="1" fill="rgba(255,255,255,0.5)"/><rect x="7" y="2" width="2.5" height="8" rx="1" fill="rgba(255,255,255,0.5)"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// Hero date
+const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const now=new Date();
+const heroDate = document.getElementById('hero-date');
+if(heroDate) heroDate.textContent=`${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
+
+// Flip calendar
+const dayAbbr=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+function flipTo(el, val, force){
+  if(!force && el.textContent===val) return;
+  el.classList.remove('flipping');
+  void el.offsetWidth;
+  el.textContent=val;
+  el.classList.add('flipping');
+  el.addEventListener('animationend',()=>el.classList.remove('flipping'),{once:true});
+}
+function updateCalendar(force){
+  const t=new Date();
+  flipTo(document.getElementById('fc-day'), dayAbbr[t.getDay()], force);
+  flipTo(document.getElementById('fc-date'), String(t.getDate()).padStart(2,'0'), force);
+}
+updateCalendar(true);
+setInterval(updateCalendar, 60000); // check every minute
+
+// Load from data.json
+fetch('data.json?v='+Date.now())
+  .then(r=>r.json())
+  .then(data=>{
+    // Update hero card
+    const t=data.today;
+    document.getElementById('card-word').textContent=t.word;
+    document.getElementById('card-pron').textContent=t.pronunciation;
+    document.getElementById('card-pos').textContent=t.part_of_speech.toUpperCase();
+    document.getElementById('card-def').textContent=t.definition;
+    if(t.audio){ audio.src=t.audio; }
+
+    // Build archive grid — newest first, show 6, load more button
+    const grid=document.getElementById('archive-grid');
+    const past=[...data.past];
+    const SHOW=6;
+    let showing=SHOW;
+    function renderCards(){
+      grid.innerHTML='';
+      past.slice(0,showing).forEach((w,i)=>{
+        const c=document.createElement('div');
+        c.className='archive-card';
+        c.innerHTML=`<div class="archive-num">No. ${String(past.length-i).padStart(3,'0')}</div>
+          <div class="archive-word">${w.word}</div>
+          <div class="archive-pos">${w.pos}</div>`;
+        c.addEventListener('click',()=>openModal(w));
+        grid.appendChild(c);
+      });
+      // Show/hide load more button
+      const moreBtn=document.getElementById('load-more-btn');
+      const lessBtn=document.getElementById('load-less-btn');
+      if(moreBtn) moreBtn.style.display=showing>=past.length?'none':'block';
+      if(lessBtn) lessBtn.style.display=showing>SHOW?'block':'none';
+    }
+    renderCards();
+    document.getElementById('load-more-btn').addEventListener('click',()=>{showing+=6;renderCards();});
+    document.getElementById('load-less-btn').addEventListener('click',()=>{showing=SHOW;renderCards();});
+  })
+  .catch(()=>{
+    // Fallback if no data.json (local file:// viewing) — newest first
+    const grid=document.getElementById('archive-grid');
+    const words=[
+      {word:'Tomfoolery',pos:'noun',pron:'tom · fool · ery',def:'playful or foolish behavior',audio:'tomfoolery.mp3'},
+      {word:'Transcend',pos:'verb',pron:'tran · ˈsend',def:'to go beyond the limits of something — to rise above what is ordinary or expected.',audio:'transcend.mp3'},
+      {word:'Solitude',pos:'noun',pron:'ˈsä · lə · ˌtüd',def:'the state of being alone, often by choice — a quiet removed from the noise of the world.',audio:'solitude.mp3'},
+      {word:'Kerfuffle',pos:'noun',pron:'kər · ˈfə · fəl',def:'a commotion or fuss, especially one caused by conflicting views — much ado about something small.',audio:'kerfuffle.mp3'},
+      {word:'Ghastly',pos:'adjective',pron:'ˈɡas(t) · lē',def:'causing great horror or shock — something so terrible the memory of it lingers long after it passes.',audio:'ghastly.mp3'},
+      {word:'Clamorous',pos:'adjective',pron:'ˈkla · mər · əs',def:'making a loud, persistent noise or outcry — the kind of noise that fills a room and refuses to leave.',audio:'clamorous.mp3'},
+      {word:'Auspicious',pos:'adjective',pron:'ô · ˈspi · shəs',def:'giving a strong sense that future success is likely — a sign that the stars are finally in your favor.',audio:'auspicious.mp3'},
+    ];
+    const SHOW=6;let showing=SHOW;
+    function renderFallback(){
+      grid.innerHTML='';
+      words.slice(0,showing).forEach((w,i)=>{
+        const c=document.createElement('div');
+        c.className='archive-card';
+        c.innerHTML=`<div class="archive-num">No. ${String(words.length-i).padStart(3,'0')}</div>
+          <div class="archive-word">${w.word}</div>
+          <div class="archive-pos">${w.pos}</div>`;
+        c.addEventListener('click',()=>openModal(w));
+        grid.appendChild(c);
+      });
+      const moreBtn=document.getElementById('load-more-btn');
+      const lessBtn=document.getElementById('load-less-btn');
+      if(moreBtn) moreBtn.style.display=showing>=words.length?'none':'block';
+      if(lessBtn) lessBtn.style.display=showing>SHOW?'block':'none';
+    }
+    renderFallback();
+    document.getElementById('load-more-btn').addEventListener('click',()=>{showing+=6;renderFallback();});
+    document.getElementById('load-less-btn').addEventListener('click',()=>{showing=SHOW;renderFallback();});
+  });
+
+// Modal
+const modal=document.getElementById('word-modal');
+const modalAudioBtn=document.getElementById('modal-audio-btn');
+let modalAudio=null;
+function openModal(w){
+  document.getElementById('modal-word').textContent=w.word;
+  document.getElementById('modal-pron').textContent=w.pron;
+  document.getElementById('modal-pos').textContent=w.pos;
+  document.getElementById('modal-def').textContent=w.def;
+  // reset audio
+  if(modalAudio){modalAudio.pause();modalAudio=null;}
+  modalAudioBtn.classList.remove('playing');
+  if(w.audio){
+    modalAudio=new Audio(w.audio);
+    modalAudio.addEventListener('ended',()=>modalAudioBtn.classList.remove('playing'));
+    modalAudioBtn.style.display='inline-flex';
+  } else {
+    modalAudioBtn.style.display='none';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  if(modalAudio){modalAudio.pause();modalAudioBtn.classList.remove('playing');}
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+}
+modalAudioBtn.addEventListener('click',()=>{
+  if(!modalAudio)return;
+  if(modalAudio.paused){modalAudio.currentTime=0;modalAudio.play();modalAudioBtn.classList.add('playing');}
+  else{modalAudio.pause();modalAudioBtn.classList.remove('playing');}
+});
+document.getElementById('modal-close').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+// Grandpa Paul intro audio
+let introAudio=null;
+function toggleIntro(){
+  if(!introAudio) introAudio=new Audio('grandpa-intro.mp3');
+  if(introAudio.paused){
+    introAudio.currentTime=0;
+    introAudio.play();
+    document.getElementById('intro-icon-play').style.display='none';
+    document.getElementById('intro-icon-pause').style.display='block';
+    introAudio.onended=()=>{
+      document.getElementById('intro-icon-play').style.display='block';
+      document.getElementById('intro-icon-pause').style.display='none';
+    };
+  } else {
+    introAudio.pause();
+    document.getElementById('intro-icon-play').style.display='block';
+    document.getElementById('intro-icon-pause').style.display='none';
+  }
+}
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,idx)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),idx*70);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.archive-card').forEach(c=>obs.observe(c));
+
+// Gloss follows cursor on card surface
+const card = document.getElementById('wotd-card');
+document.addEventListener('mousemove', e => {
+  const rect = card.getBoundingClientRect();
+  const gx = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+  const gy = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+  card.style.setProperty('--mx', gx + '%');
+  card.style.setProperty('--my', gy + '%');
+});
+document.addEventListener('mouseleave', () => {
+  card.style.setProperty('--mx', '30%');
+  card.style.setProperty('--my', '20%');
+});
+
+// Audio button
+const audioBtn = document.getElementById('audio-btn');
+const audio = new Audio('tomfoolery.mp3');
+audioBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.currentTime = 0;
+    audio.play();
+    audioBtn.classList.add('playing');
+  } else {
+    audio.pause();
+    audioBtn.classList.remove('playing');
+  }
+});
+audio.addEventListener('ended', () => audioBtn.classList.remove('playing'));
+
+// Countdown to next word (9am UTC daily)
+function updateCountdown(){
+  const now = new Date();
+  const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 9, 0, 0));
+  if(now >= next) next.setUTCDate(next.getUTCDate() + 1);
+  const diff = next - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-minutes').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-seconds').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>

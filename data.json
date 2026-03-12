@@ -1,0 +1,67 @@
+{
+  "today": {
+    "word": "Manifest",
+    "pronunciation": "man \u00b7 i \u00b7 fest",
+    "part_of_speech": "adjective",
+    "definition": "readily perceived by the senses and especially by the sense of sight",
+    "audio": "manifest.mp3"
+  },
+  "past": [
+    {
+      "word": "Poppycock",
+      "pos": "noun",
+      "pron": "pop \u00b7 py \u00b7 cock",
+      "def": "empty talk or writing : nonsense",
+      "audio": "poppycock.mp3"
+    },
+    {
+      "word": "Tomfoolery",
+      "pos": "noun",
+      "pron": "tom \u00b7 fool \u00b7 ery",
+      "def": "playful or foolish behavior",
+      "audio": "tomfoolery.mp3"
+    },
+    {
+      "word": "Transcend",
+      "pos": "verb",
+      "pron": "tran \u00b7 \u02c8send",
+      "def": "to go beyond the limits of something \u2014 to rise above what is ordinary or expected.",
+      "audio": "transcend.mp3"
+    },
+    {
+      "word": "Solitude",
+      "pos": "noun",
+      "pron": "\u02c8s\u00e4 \u00b7 l\u0259 \u00b7 \u02cct\u00fcd",
+      "def": "the state of being alone, often by choice \u2014 a quiet removed from the noise of the world.",
+      "audio": "solitude.mp3"
+    },
+    {
+      "word": "Kerfuffle",
+      "pos": "noun",
+      "pron": "k\u0259r \u00b7 \u02c8f\u0259 \u00b7 f\u0259l",
+      "def": "a commotion or fuss, especially one caused by conflicting views \u2014 much ado about something small.",
+      "audio": "kerfuffle.mp3"
+    },
+    {
+      "word": "Ghastly",
+      "pos": "adjective",
+      "pron": "\u02c8\u0261as(t) \u00b7 l\u0113",
+      "def": "causing great horror or shock \u2014 something so terrible the memory of it lingers long after it passes.",
+      "audio": "ghastly.mp3"
+    },
+    {
+      "word": "Clamorous",
+      "pos": "adjective",
+      "pron": "\u02c8kla \u00b7 m\u0259r \u00b7 \u0259s",
+      "def": "making a loud, persistent noise or outcry \u2014 the kind of noise that fills a room and refuses to leave.",
+      "audio": "clamorous.mp3"
+    },
+    {
+      "word": "Auspicious",
+      "pos": "adjective",
+      "pron": "\u00f4 \u00b7 \u02c8spi \u00b7 sh\u0259s",
+      "def": "giving a strong sense that future success is likely \u2014 a sign that the stars are finally in your favor.",
+      "audio": "auspicious.mp3"
+    }
+  ]
+}
