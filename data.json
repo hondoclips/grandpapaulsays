@@ -1,12 +1,19 @@
 {
   "today": {
-    "word": "Poppycock",
-    "pronunciation": "pop \u00b7 py \u00b7 cock",
-    "part_of_speech": "noun",
-    "definition": "empty talk or writing : nonsense",
-    "audio": "poppycock.mp3"
+    "word": "Ostentatious",
+    "pronunciation": "os \u00b7 ten \u00b7 ta \u00b7 tious",
+    "part_of_speech": "adjective",
+    "definition": "attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous",
+    "audio": "ostentatious.mp3"
   },
   "past": [
+    {
+      "word": "Poppycock",
+      "pos": "noun",
+      "pron": "pop \u00b7 py \u00b7 cock",
+      "def": "empty talk or writing : nonsense",
+      "audio": "poppycock.mp3"
+    },
     {
       "word": "Tomfoolery",
       "pos": "noun",
