@@ -695,6 +695,7 @@ fetch('data.json?v='+Date.now())
     document.getElementById('card-pos').textContent=t.part_of_speech.toUpperCase();
     document.getElementById('card-def').textContent=t.definition;
     if(t.audio){ audio.src=t.audio; }
+    fitCardWord();
 
     // Build archive grid — newest first, show 6, load more button
     const grid=document.getElementById('archive-grid');
@@ -822,6 +823,20 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.1});
 document.querySelectorAll('.archive-card').forEach(c=>obs.observe(c));
+
+// Fit word to card — shrink font until it doesn't overflow
+function fitCardWord(){
+  const el=document.getElementById('card-word');
+  const card=document.getElementById('wotd-card');
+  el.style.fontSize='';
+  let size=110;
+  el.style.fontSize=size+'px';
+  while(el.scrollWidth>card.clientWidth-80 && size>32){
+    size-=2;
+    el.style.fontSize=size+'px';
+  }
+}
+window.addEventListener('resize',fitCardWord);
 
 // Gloss follows cursor on card surface
 const card = document.getElementById('wotd-card');
