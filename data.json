@@ -1,12 +1,19 @@
 {
   "today": {
-    "word": "Liminal",
-    "pronunciation": "lim \u00b7 i \u00b7 nal",
-    "part_of_speech": "adjective",
-    "definition": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
-    "audio": "liminal.mp3"
+    "word": "Malarkey",
+    "pronunciation": "ma \u00b7 lar \u00b7 key",
+    "part_of_speech": "noun",
+    "definition": "insincere or foolish talk : bunkum",
+    "audio": "malarkey.mp3"
   },
   "past": [
+    {
+      "word": "Liminal",
+      "pos": "adjective",
+      "pron": "lim \u00b7 i \u00b7 nal",
+      "def": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
+      "audio": "liminal.mp3"
+    },
     {
       "word": "Ostentatious",
       "pos": "adjective",
