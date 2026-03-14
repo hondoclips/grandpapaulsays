@@ -1,12 +1,19 @@
 {
   "today": {
-    "word": "Ostentatious",
-    "pronunciation": "os \u00b7 ten \u00b7 ta \u00b7 tious",
+    "word": "Liminal",
+    "pronunciation": "lim \u00b7 i \u00b7 nal",
     "part_of_speech": "adjective",
-    "definition": "attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous",
-    "audio": "ostentatious.mp3"
+    "definition": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
+    "audio": "liminal.mp3"
   },
   "past": [
+    {
+      "word": "Ostentatious",
+      "pos": "adjective",
+      "pron": "os \u00b7 ten \u00b7 ta \u00b7 tious",
+      "def": "attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous",
+      "audio": "ostentatious.mp3"
+    },
     {
       "word": "Poppycock",
       "pos": "noun",
