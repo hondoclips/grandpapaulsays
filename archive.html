@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grandpa Paul — All Words</title>
-<meta name="description" content="Every word Grandpa Paul has shared. One a day. Every morning.">
+<title>Grandpa Paul — The Collection</title>
+<meta name="description" content="Every word I've shared. One a day. Every morning.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -17,7 +17,6 @@ body{
   width:100%;
 }
 
-/* ── NAV ── */
 nav{
   position:relative;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -30,8 +29,7 @@ nav{
 }
 .nav-logo-title{
   font-family:'Playfair Display',serif;
-  font-size:17px;font-weight:700;letter-spacing:1px;
-  color:#111;
+  font-size:17px;font-weight:700;letter-spacing:1px;color:#111;
 }
 .nav-logo-sub{
   font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
@@ -40,8 +38,7 @@ nav{
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a{
   font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
-  color:rgba(0,0,0,0.45);text-decoration:none;
-  transition:color 0.2s;
+  color:rgba(0,0,0,0.45);text-decoration:none;transition:color 0.2s;
 }
 .nav-links a:hover{color:#111}
 .nav-ig{
@@ -52,53 +49,67 @@ nav{
 }
 .nav-ig:hover{background:#333 !important}
 
-/* ── PAGE ── */
-.page{
-  padding:80px 56px 120px;
-  max-width:1200px;
-  margin:0 auto;
-}
-.page-header{
-  margin-bottom:56px;
+/* ── HEADER ── */
+.page-hero{
+  padding:100px 56px 72px;
+  max-width:900px;
 }
 .page-label{
   font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:600;
-  color:rgba(0,0,0,0.35);margin-bottom:16px;
+  color:rgba(0,0,0,0.35);margin-bottom:20px;
 }
 .page-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(36px,5vw,64px);font-weight:700;
-  color:#111;line-height:1.1;
+  font-size:clamp(40px,6vw,72px);font-weight:900;
+  color:#111;line-height:1.05;margin-bottom:24px;
+  letter-spacing:-1px;
 }
-.archive-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.archive-card{
-  background:linear-gradient(145deg,#1c1c1c 0%,#111 60%,#0d0d0d 100%);
-  border-radius:20px;
-  padding:40px 36px;
-  border:1px solid rgba(255,255,255,0.07);
-  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 20px rgba(0,0,0,0.10), 0 24px 48px rgba(0,0,0,0.12);
-  cursor:pointer;
-  transition:box-shadow 0.25s ease;
-}
-.archive-card:hover{
-  box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 8px 30px rgba(0,0,0,0.24), 0 40px 80px rgba(0,0,0,0.10);
-}
-.archive-word{
+.page-sub{
   font-family:'Playfair Display',serif;
-  font-size:clamp(22px,2.5vw,32px);font-weight:900;color:#fff;
-  letter-spacing:-1px;line-height:0.95;
-  margin-bottom:12px;
-  overflow-wrap:break-word;word-break:break-word;
+  font-size:clamp(16px,2vw,20px);font-style:italic;
+  color:rgba(0,0,0,0.45);line-height:1.7;
+  max-width:560px;
 }
-.archive-pos{
-  font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,0.3);font-weight:500;
-  border:1px solid rgba(255,255,255,0.12);
-  display:inline-block;padding:4px 14px;border-radius:100px;
+
+/* ── WORD LIST ── */
+.word-list{
+  padding:0 56px 120px;
+}
+.word-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0;
+  border-top:1px solid rgba(0,0,0,0.08);
+  cursor:pointer;
+  transition:opacity 0.2s;
+  gap:24px;
+}
+.word-row:last-child{border-bottom:1px solid rgba(0,0,0,0.08)}
+.word-row:hover{opacity:0.6}
+.word-row:hover .row-arrow{opacity:1;transform:translateX(4px)}
+.row-left{display:flex;align-items:baseline;gap:20px;flex:1;min-width:0}
+.row-word{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,3vw,38px);font-weight:900;
+  color:#111;letter-spacing:-0.5px;line-height:1;
+  flex-shrink:0;
+}
+.row-def{
+  font-size:14px;color:rgba(0,0,0,0.4);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-style:italic;
+}
+.row-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.row-pos{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  color:rgba(0,0,0,0.35);
+  border:1px solid rgba(0,0,0,0.12);
+  padding:4px 14px;border-radius:100px;
+}
+.row-arrow{
+  width:20px;height:20px;
+  opacity:0;
+  transition:opacity 0.2s, transform 0.2s;
+  color:rgba(0,0,0,0.3);
 }
 
 /* ── MODAL ── */
@@ -124,22 +135,16 @@ nav{
 }
 .modal-backdrop.open .modal-card{transform:translateY(0) scale(1)}
 .modal-card::before{
-  content:'';
-  position:absolute;top:0;left:8%;right:8%;
-  height:1px;
+  content:'';position:absolute;top:0;left:8%;right:8%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
 }
 .modal-close{
   position:absolute;top:20px;right:20px;
   width:32px;height:32px;
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:50%;
-  cursor:pointer;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
+  border-radius:50%;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s;
-  color:rgba(255,255,255,0.5);
-  font-size:16px;line-height:1;
+  transition:background 0.2s;color:rgba(255,255,255,0.5);font-size:16px;
 }
 .modal-close:hover{background:rgba(255,255,255,0.15)}
 .modal-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:24px}
@@ -163,10 +168,8 @@ nav{
 .audio-btn{
   display:inline-flex;align-items:center;justify-content:center;
   width:30px;height:30px;
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:50%;cursor:pointer;
-  transition:background 0.2s;flex-shrink:0;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;cursor:pointer;transition:background 0.2s;flex-shrink:0;
 }
 .audio-btn:hover{background:rgba(255,255,255,0.15)}
 .audio-btn.playing{background:rgba(255,255,255,0.18)}
@@ -190,17 +193,16 @@ footer{
 .footer-links{display:flex;gap:24px}
 .footer-links a{
   font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
-  color:rgba(255,255,255,0.25);text-decoration:none;
-  transition:color 0.2s;
+  color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;
 }
 .footer-links a:hover{color:#fff}
 
 @media(max-width:768px){
   nav{padding:18px 20px}
   .nav-links a:not(.nav-ig){display:none}
-  .page{padding:60px 20px 80px}
-  .archive-grid{grid-template-columns:1fr;gap:12px}
-  .archive-card{padding:28px 24px}
+  .page-hero{padding:60px 20px 48px}
+  .word-list{padding:0 20px 80px}
+  .row-def{display:none}
   footer{padding:28px 20px;flex-direction:column;gap:16px}
 }
 </style>
@@ -220,13 +222,13 @@ footer{
   </div>
 </nav>
 
-<div class="page">
-  <div class="page-header">
-    <div class="page-label">The Collection</div>
-    <h1 class="page-title">Every Word So Far</h1>
-  </div>
-  <div class="archive-grid" id="archive-grid"></div>
+<div class="page-hero">
+  <div class="page-label">The Collection</div>
+  <h1 class="page-title">Every word I've<br>shared with you.</h1>
+  <p class="page-sub">I don't throw words away. Each one earned its morning. Click any of them and sit with it a little longer.</p>
 </div>
+
+<div class="word-list" id="word-list"></div>
 
 <div class="modal-backdrop" id="word-modal">
   <div class="modal-card">
@@ -247,7 +249,6 @@ footer{
   <div class="footer-logo">Grandpa Paul</div>
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="https://instagram.com/with_grandpa_paul" target="_blank">Instagram</a>
   </div>
 </footer>
 
@@ -255,19 +256,26 @@ footer{
 fetch('data.json?v='+Date.now())
   .then(r=>r.json())
   .then(data=>{
-    const grid=document.getElementById('archive-grid');
-    const all=[...data.past];
-    all.forEach(w=>{
-      const c=document.createElement('div');
-      c.className='archive-card';
-      c.innerHTML=`<div class="archive-word">${w.word}</div>
-        <div class="archive-pos">${w.pos}</div>`;
-      c.addEventListener('click',()=>openModal(w));
-      grid.appendChild(c);
+    const list=document.getElementById('word-list');
+    data.past.forEach(w=>{
+      const row=document.createElement('div');
+      row.className='word-row';
+      row.innerHTML=`
+        <div class="row-left">
+          <div class="row-word">${w.word}</div>
+          <div class="row-def">${w.def}</div>
+        </div>
+        <div class="row-right">
+          <div class="row-pos">${w.pos}</div>
+          <svg class="row-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 10h12M10 4l6 6-6 6"/>
+          </svg>
+        </div>`;
+      row.addEventListener('click',()=>openModal(w));
+      list.appendChild(row);
     });
   });
 
-// Modal
 const modal=document.getElementById('word-modal');
 const modalAudioBtn=document.getElementById('modal-audio-btn');
 let modalAudio=null;
