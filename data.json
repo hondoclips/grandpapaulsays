@@ -1,25 +1,25 @@
 {
   "today": {
-    "word": "Poppycock",
-    "pronunciation": "pop · py · cock",
-    "part_of_speech": "noun",
-    "definition": "empty talk or writing : nonsense",
-    "audio": "poppycock.mp3"
+    "word": "Liminal",
+    "pronunciation": "lim · i · nal",
+    "part_of_speech": "adjective",
+    "definition": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
+    "audio": "liminal.mp3"
   },
   "past": [
-    {
-      "word": "Liminal",
-      "pos": "adjective",
-      "pron": "lim · i · nal",
-      "def": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
-      "audio": "liminal.mp3"
-    },
     {
       "word": "Ostentatious",
       "pos": "adjective",
       "pron": "os · ten · ta · tious",
       "def": "attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous",
       "audio": "ostentatious.mp3"
+    },
+    {
+      "word": "Poppycock",
+      "pos": "noun",
+      "pron": "pop · py · cock",
+      "def": "empty talk or writing : nonsense",
+      "audio": "poppycock.mp3"
     },
     {
       "word": "Tomfoolery",
