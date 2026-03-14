@@ -707,8 +707,7 @@ fetch('data.json?v='+Date.now())
       past.slice(0,showing).forEach((w,i)=>{
         const c=document.createElement('div');
         c.className='archive-card';
-        c.innerHTML=`<div class="archive-num">No. ${String(past.length-i).padStart(3,'0')}</div>
-          <div class="archive-word">${w.word}</div>
+        c.innerHTML=`<div class="archive-word">${w.word}</div>
           <div class="archive-pos">${w.pos}</div>`;
         c.addEventListener('click',()=>openModal(w));
         grid.appendChild(c);
@@ -741,8 +740,7 @@ fetch('data.json?v='+Date.now())
       words.slice(0,showing).forEach((w,i)=>{
         const c=document.createElement('div');
         c.className='archive-card';
-        c.innerHTML=`<div class="archive-num">No. ${String(words.length-i).padStart(3,'0')}</div>
-          <div class="archive-word">${w.word}</div>
+        c.innerHTML=`<div class="archive-word">${w.word}</div>
           <div class="archive-pos">${w.pos}</div>`;
         c.addEventListener('click',()=>openModal(w));
         grid.appendChild(c);
