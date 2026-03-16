@@ -250,25 +250,31 @@ footer{
 </footer>
 
 <script>
-fetch('data.json?v='+Date.now())
+const SUPA_URL='https://ikkbsayegxbreuksoapk.supabase.co';
+const SUPA_KEY='sb_publishable_M15vdr1GuUp_R3T5orJsvA_JgkCvHqt';
+const SUPA_HEADERS={'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
+
+fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.false&order=posted_date.desc`,{headers:SUPA_HEADERS})
   .then(r=>r.json())
-  .then(data=>{
+  .then(words=>{
     const list=document.getElementById('word-list');
-    data.past.forEach(w=>{
+    words.forEach(w=>{
       const row=document.createElement('div');
       row.className='word-row';
       row.innerHTML=`
         <div class="row-left">
           <div class="row-word">${w.word}</div>
-          <div class="row-def">${w.def}</div>
+          <div class="row-def">${w.definition}</div>
         </div>
         <div class="row-right">
-          <div class="row-pos">${w.pos}</div>
+          <div class="row-pos">${w.part_of_speech}</div>
           <svg class="row-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M4 10h12M10 4l6 6-6 6"/>
           </svg>
         </div>`;
-      row.addEventListener('click',()=>openModal(w));
+      row.addEventListener('click',()=>openModal({
+        word:w.word,pron:w.pronunciation,pos:w.part_of_speech,def:w.definition,audio:w.audio
+      }));
       list.appendChild(row);
     });
   });

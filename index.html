@@ -686,35 +686,40 @@ function updateCalendar(force){
 updateCalendar(true);
 setInterval(updateCalendar, 60000); // check every minute
 
-// Load from data.json
-fetch('data.json?v='+Date.now())
-  .then(r=>r.json())
-  .then(data=>{
-    // Update hero card
-    const t=data.today;
-    document.getElementById('card-word').textContent=t.word;
-    document.getElementById('card-pron').textContent=t.pronunciation;
-    document.getElementById('card-pos').textContent=t.part_of_speech.toUpperCase();
-    document.getElementById('card-def').textContent=t.definition;
-    if(t.audio){ audio.src=t.audio; }
-    fitCardWord();
+// Load from Supabase
+const SUPA_URL='https://ikkbsayegxbreuksoapk.supabase.co';
+const SUPA_KEY='sb_publishable_M15vdr1GuUp_R3T5orJsvA_JgkCvHqt';
+const SUPA_HEADERS={'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
 
-    // Build archive grid — newest first, show 6, load more button
+Promise.all([
+  fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.true&limit=1`,{headers:SUPA_HEADERS}).then(r=>r.json()),
+  fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.false&order=posted_date.desc`,{headers:SUPA_HEADERS}).then(r=>r.json())
+]).then(([todayArr, past])=>{
+    const t=todayArr[0];
+    if(t){
+      document.getElementById('card-word').textContent=t.word;
+      document.getElementById('card-pron').textContent=t.pronunciation;
+      document.getElementById('card-pos').textContent=t.part_of_speech.toUpperCase();
+      document.getElementById('card-def').textContent=t.definition;
+      if(t.audio){ audio.src=t.audio; }
+      fitCardWord();
+    }
+
     const grid=document.getElementById('archive-grid');
-    const past=[...data.past];
     const SHOW=6;
     let showing=SHOW;
     function renderCards(){
       grid.innerHTML='';
-      past.slice(0,showing).forEach((w,i)=>{
+      past.slice(0,showing).forEach(w=>{
         const c=document.createElement('div');
         c.className='archive-card';
         c.innerHTML=`<div class="archive-word">${w.word}</div>
-          <div class="archive-pos">${w.pos}</div>`;
-        c.addEventListener('click',()=>openModal(w));
+          <div class="archive-pos">${w.part_of_speech}</div>`;
+        c.addEventListener('click',()=>openModal({
+          word:w.word,pron:w.pronunciation,pos:w.part_of_speech,def:w.definition,audio:w.audio
+        }));
         grid.appendChild(c);
       });
-      // Show/hide load more button
       const moreBtn=document.getElementById('load-more-btn');
       const lessBtn=document.getElementById('load-less-btn');
       if(moreBtn) moreBtn.style.display=showing>=past.length?'none':'block';
@@ -723,41 +728,7 @@ fetch('data.json?v='+Date.now())
     renderCards();
     document.getElementById('load-more-btn').addEventListener('click',()=>{showing+=6;renderCards();});
     document.getElementById('load-less-btn').addEventListener('click',()=>{showing=SHOW;renderCards();});
-  })
-  .catch(()=>{
-    // Fallback if no data.json (local file:// viewing) — newest first
-    const grid=document.getElementById('archive-grid');
-    const words=[
-      {word:'Malarkey',pos:'noun',pron:'ma · lar · key',def:'Talking nonsense or saying something that is not true.',audio:'malarkey.mp3'},
-      {word:'Liminal',pos:'adjective',pron:'lim · i · nal',def:'Being on the verge of change, barely noticeable but still there.',audio:'liminal.mp3'},
-      {word:'Ostentatious',pos:'adjective',pron:'os · ten · ta · tious',def:'Showing off in a way that is meant to get attention.',audio:'ostentatious.mp3'},
-      {word:'Poppycock',pos:'noun',pron:'pop · py · cock',def:'Talk that has no real meaning or sense.',audio:'poppycock.mp3'},
-      {word:'Tomfoolery',pos:'noun',pron:'tom · fool · ery',def:'Silly or foolish behavior that is often playful.',audio:'tomfoolery.mp3'},
-      {word:'Transcend',pos:'verb',pron:'tran · send',def:'Going beyond what is normal or expected.',audio:'transcend.mp3'},
-      {word:'Solitude',pos:'noun',pron:'sol · i · tude',def:'Being alone in a quiet and peaceful place by choice.',audio:'solitude.mp3'},
-      {word:'Kerfuffle',pos:'noun',pron:'ker · fuf · fle',def:'A big fuss or commotion over something very small.',audio:'kerfuffle.mp3'},
-      {word:'Ghastly',pos:'adjective',pron:'ghast · ly',def:'Something that is very scary or extremely disturbing.',audio:'ghastly.mp3'},
-      {word:'Clamorous',pos:'adjective',pron:'clam · or · ous',def:'Making a loud and persistent noise.',audio:'clamorous.mp3'},
-      {word:'Auspicious',pos:'adjective',pron:'aus · pi · cious',def:'Showing strong signs that good things are coming.',audio:'auspicious.mp3'},
-    ];
-    const SHOW=6;let showing=SHOW;
-    function renderFallback(){
-      grid.innerHTML='';
-      words.slice(0,showing).forEach((w,i)=>{
-        const c=document.createElement('div');
-        c.className='archive-card';
-        c.innerHTML=`<div class="archive-word">${w.word}</div>
-          <div class="archive-pos">${w.pos}</div>`;
-        c.addEventListener('click',()=>openModal(w));
-        grid.appendChild(c);
-      });
-      const moreBtn=document.getElementById('load-more-btn');
-      const lessBtn=document.getElementById('load-less-btn');
-      if(moreBtn) moreBtn.style.display=showing>=words.length?'none':'block';
-      if(lessBtn) lessBtn.style.display=showing>SHOW?'block':'none';
-    }
-    renderFallback();
-    document.getElementById('load-more-btn').addEventListener('click',()=>{showing+=6;renderFallback();});
+  }).catch(()=>{
     document.getElementById('load-less-btn').addEventListener('click',()=>{showing=SHOW;renderFallback();});
   });
 
