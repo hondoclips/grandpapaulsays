@@ -1,7 +1,7 @@
 {
   "today": {
     "word": "Hullabaloo",
-    "pronunciation": "hul · la · ba · loo",
+    "pronunciation": "hul \u00b7 la \u00b7 ba \u00b7 loo",
     "part_of_speech": "noun",
     "definition": "a loud, continued noise or mixture of noises : din",
     "audio": "hullabaloo.mp3"
@@ -10,78 +10,78 @@
     {
       "word": "Malarkey",
       "pos": "noun",
-      "pron": "ma · lar · key",
-      "def": "insincere or foolish talk : bunkum",
+      "pron": "ma \u00b7 lar \u00b7 key",
+      "def": "The politician's promise to lower taxes and create jobs simultaneously was nothing but insincere or foolish talk, a bunch of bunkum meant to sway voters rather than offer a genuine solution.",
       "audio": "malarkey.mp3"
     },
     {
       "word": "Liminal",
       "pos": "adjective",
-      "pron": "lim · i · nal",
-      "def": "of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response",
+      "pron": "lim \u00b7 i \u00b7 nal",
+      "def": "The whisper was of a volume that was barely perceptible, yet still capable of eliciting a response, as it existed at a sensory threshold that was just strong enough to be heard.",
       "audio": "liminal.mp3"
     },
     {
       "word": "Ostentatious",
       "pos": "adjective",
-      "pron": "os · ten · ta · tious",
-      "def": "attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous",
+      "pron": "os \u00b7 ten \u00b7 ta \u00b7 tious",
+      "def": "The billionaire's lavish spending on exotic cars and opulent mansions was clearly a deliberate attempt to attract attention and admiration, often by means of gaudy displays of wealth that seemed overly elaborate and conspicuous.",
       "audio": "ostentatious.mp3"
     },
     {
       "word": "Poppycock",
       "pos": "noun",
-      "pron": "pop · py · cock",
-      "def": "empty talk or writing : nonsense",
+      "pron": "pop \u00b7 py \u00b7 cock",
+      "def": "The politician's promise to create a million new jobs overnight was just empty talk or writing, a bunch of nonsense that nobody with any sense believed for a second.",
       "audio": "poppycock.mp3"
     },
     {
       "word": "Tomfoolery",
       "pos": "noun",
-      "pron": "tom · fool · ery",
-      "def": "playful or foolish behavior",
+      "pron": "tom \u00b7 fool \u00b7 ery",
+      "def": "The group of friends spent the evening engaging in playful or foolish behavior, laughing and joking together as they tried to outdo each other with silly antics.",
       "audio": "tomfoolery.mp3"
     },
     {
       "word": "Transcend",
       "pos": "verb",
-      "pron": "tran · send",
-      "def": "to go beyond the limits of something, to rise above what is ordinary or expected.",
+      "pron": "tran \u00b7 send",
+      "def": "The most innovative artists are those who manage to go beyond the limits of their medium, rising above what is ordinary or expected to create something truly remarkable.",
       "audio": "transcend.mp3"
     },
     {
       "word": "Solitude",
       "pos": "noun",
-      "pron": "sol · i · tude",
-      "def": "the state of being alone, often by choice, a quiet removed from the noise of the world.",
+      "pron": "sol \u00b7 i \u00b7 tude",
+      "def": "The state of being alone, often by choice, is a quiet removed from the noise of the world where one can reflect and recharge without distraction.",
       "audio": "solitude.mp3"
     },
     {
       "word": "Kerfuffle",
       "pos": "noun",
-      "pron": "ker · fuf · fle",
-      "def": "a commotion or fuss, especially one caused by conflicting views, much ado about something small.",
+      "pron": "ker \u00b7 fuf \u00b7 fle",
+      "def": "The argument over the minor policy change sparked a commotion or fuss, especially one caused by conflicting views, with many people worked up over what was essentially a small issue.",
       "audio": "kerfuffle.mp3"
     },
     {
       "word": "Ghastly",
       "pos": "adjective",
-      "pron": "ghast · ly",
-      "def": "causing great horror or shock, something so terrible the memory of it lingers long after it passes.",
+      "pron": "ghast \u00b7 ly",
+      "def": "The accident was a truly disturbing event that caused great horror and shock, leaving a terrible memory that lingered long after it passed.",
       "audio": "ghastly.mp3"
     },
     {
       "word": "Clamorous",
       "pos": "adjective",
-      "pron": "clam · or · ous",
-      "def": "making a loud, persistent noise or outcry, the kind of noise that fills a room and refuses to leave.",
+      "pron": "clam \u00b7 or \u00b7 ous",
+      "def": "The protesters created a loud, persistent noise that filled the entire room and refused to subside, drawing the attention of everyone in the building to their demands.",
       "audio": "clamorous.mp3"
     },
     {
       "word": "Auspicious",
       "pos": "adjective",
-      "pron": "aus · pi · cious",
-      "def": "giving a strong sense that future success is likely, a sign that the stars are finally in your favor.",
+      "pron": "aus \u00b7 pi \u00b7 cious",
+      "def": "The new business venture was launched under circumstances that gave a strong sense that future success was likely, a sign that the stars were finally in their favor.",
       "audio": "auspicious.mp3"
     }
   ]
