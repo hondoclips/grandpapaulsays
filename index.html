@@ -636,7 +636,7 @@ footer{
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19 31.8 31.8 0 000 12a31.8 31.8 0 00.5 5.81 3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.8 31.8 0 0024 12a31.8 31.8 0 00-.5-5.81zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
       YouTube
     </a>
-    <a href="https://www.facebook.com/W0rd.of.the.day" target="_blank" class="social-btn btn-facebook">
+    <a href="https://www.facebook.com/942852432254814" target="_blank" class="social-btn btn-facebook">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
       Facebook
     </a>
@@ -728,13 +728,17 @@ fetch('data.json?v='+Date.now())
     // Fallback if no data.json (local file:// viewing) — newest first
     const grid=document.getElementById('archive-grid');
     const words=[
+      {word:'Malarkey',pos:'noun',pron:'ma · lar · key',def:'insincere or foolish talk : bunkum',audio:'malarkey.mp3'},
+      {word:'Liminal',pos:'adjective',pron:'lim · i · nal',def:'of, relating to, or situated at a sensory threshold : barely perceptible or capable of eliciting a response',audio:'liminal.mp3'},
+      {word:'Ostentatious',pos:'adjective',pron:'os · ten · ta · tious',def:'attracting or seeking to attract attention, admiration, or envy often by gaudiness or unnecessary show : overly elaborate or conspicuous',audio:'ostentatious.mp3'},
+      {word:'Poppycock',pos:'noun',pron:'pop · py · cock',def:'empty talk or writing : nonsense',audio:'poppycock.mp3'},
       {word:'Tomfoolery',pos:'noun',pron:'tom · fool · ery',def:'playful or foolish behavior',audio:'tomfoolery.mp3'},
-      {word:'Transcend',pos:'verb',pron:'tran · ˈsend',def:'to go beyond the limits of something, to rise above what is ordinary or expected.',audio:'transcend.mp3'},
-      {word:'Solitude',pos:'noun',pron:'ˈsä · lə · ˌtüd',def:'the state of being alone, often by choice, a quiet removed from the noise of the world.',audio:'solitude.mp3'},
-      {word:'Kerfuffle',pos:'noun',pron:'kər · ˈfə · fəl',def:'a commotion or fuss, especially one caused by conflicting views, much ado about something small.',audio:'kerfuffle.mp3'},
-      {word:'Ghastly',pos:'adjective',pron:'ˈɡas(t) · lē',def:'causing great horror or shock, something so terrible the memory of it lingers long after it passes.',audio:'ghastly.mp3'},
-      {word:'Clamorous',pos:'adjective',pron:'ˈkla · mər · əs',def:'making a loud, persistent noise or outcry, the kind of noise that fills a room and refuses to leave.',audio:'clamorous.mp3'},
-      {word:'Auspicious',pos:'adjective',pron:'ô · ˈspi · shəs',def:'giving a strong sense that future success is likely, a sign that the stars are finally in your favor.',audio:'auspicious.mp3'},
+      {word:'Transcend',pos:'verb',pron:'tran · send',def:'to go beyond the limits of something, to rise above what is ordinary or expected.',audio:'transcend.mp3'},
+      {word:'Solitude',pos:'noun',pron:'sol · i · tude',def:'the state of being alone, often by choice, a quiet removed from the noise of the world.',audio:'solitude.mp3'},
+      {word:'Kerfuffle',pos:'noun',pron:'ker · fuf · fle',def:'a commotion or fuss, especially one caused by conflicting views, much ado about something small.',audio:'kerfuffle.mp3'},
+      {word:'Ghastly',pos:'adjective',pron:'ghast · ly',def:'causing great horror or shock, something so terrible the memory of it lingers long after it passes.',audio:'ghastly.mp3'},
+      {word:'Clamorous',pos:'adjective',pron:'clam · or · ous',def:'making a loud, persistent noise or outcry, the kind of noise that fills a room and refuses to leave.',audio:'clamorous.mp3'},
+      {word:'Auspicious',pos:'adjective',pron:'aus · pi · cious',def:'giving a strong sense that future success is likely, a sign that the stars are finally in your favor.',audio:'auspicious.mp3'},
     ];
     const SHOW=6;let showing=SHOW;
     function renderFallback(){
