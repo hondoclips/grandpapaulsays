@@ -1,12 +1,19 @@
 {
   "today": {
-    "word": "Malarkey",
-    "pronunciation": "ma \u00b7 lar \u00b7 key",
+    "word": "Hullabaloo",
+    "pronunciation": "hul \u00b7 la \u00b7 ba \u00b7 loo",
     "part_of_speech": "noun",
-    "definition": "insincere or foolish talk : bunkum",
-    "audio": "malarkey.mp3"
+    "definition": "a loud, continued noise or mixture of noises : din",
+    "audio": "hullabaloo.mp3"
   },
   "past": [
+    {
+      "word": "Malarkey",
+      "pos": "noun",
+      "pron": "ma \u00b7 lar \u00b7 key",
+      "def": "insincere or foolish talk : bunkum",
+      "audio": "malarkey.mp3"
+    },
     {
       "word": "Liminal",
       "pos": "adjective",
