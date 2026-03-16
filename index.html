@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grandpa Paul — Word of the Day</title>
+<title>Grandpa Paul, Word of the Day</title>
 <meta name="description" content="I've been collecting words my whole life. My father did it. His father before him. Now I'm putting them here. One a day. Every morning. Before the world gets loud. Pull up a chair.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -594,7 +594,7 @@ footer{
     <div class="about-text">
       <div class="label">About Me</div>
       <h2 style="display:flex;align-items:center;gap:16px;">I'm Grandpa Paul <button id="intro-btn" onclick="toggleIntro()" style="flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid #111;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Play intro"><svg id="intro-icon-play" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l7 4-7 4V2z" fill="#111"/></svg><svg id="intro-icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:none"><rect x="2.5" y="2" width="2.5" height="8" rx="1" fill="#111"/><rect x="7" y="2" width="2.5" height="8" rx="1" fill="#111"/></svg></button></h2>
-      <p>Every morning I sit down with my coffee, black, no sugar, and I pick a word. Not just any word — one worth knowing. One that's been around longer than most of us and still has something to say.</p>
+      <p>Every morning I sit down with my coffee, black, no sugar, and I pick a word. Not just any word, one worth knowing. One that's been around longer than most of us and still has something to say.</p>
       <p>I've been doing this my whole life. My father did it. His father before him. Words to us were never just words. They were how you showed people you were paying attention.</p>
       <p>So that's what this is. One word every day. From my cabin to wherever you are. Stick around. You might learn something.</p>
       <p>I know I still do.</p>
@@ -729,12 +729,12 @@ fetch('data.json?v='+Date.now())
     const grid=document.getElementById('archive-grid');
     const words=[
       {word:'Tomfoolery',pos:'noun',pron:'tom · fool · ery',def:'playful or foolish behavior',audio:'tomfoolery.mp3'},
-      {word:'Transcend',pos:'verb',pron:'tran · ˈsend',def:'to go beyond the limits of something — to rise above what is ordinary or expected.',audio:'transcend.mp3'},
-      {word:'Solitude',pos:'noun',pron:'ˈsä · lə · ˌtüd',def:'the state of being alone, often by choice — a quiet removed from the noise of the world.',audio:'solitude.mp3'},
-      {word:'Kerfuffle',pos:'noun',pron:'kər · ˈfə · fəl',def:'a commotion or fuss, especially one caused by conflicting views — much ado about something small.',audio:'kerfuffle.mp3'},
-      {word:'Ghastly',pos:'adjective',pron:'ˈɡas(t) · lē',def:'causing great horror or shock — something so terrible the memory of it lingers long after it passes.',audio:'ghastly.mp3'},
-      {word:'Clamorous',pos:'adjective',pron:'ˈkla · mər · əs',def:'making a loud, persistent noise or outcry — the kind of noise that fills a room and refuses to leave.',audio:'clamorous.mp3'},
-      {word:'Auspicious',pos:'adjective',pron:'ô · ˈspi · shəs',def:'giving a strong sense that future success is likely — a sign that the stars are finally in your favor.',audio:'auspicious.mp3'},
+      {word:'Transcend',pos:'verb',pron:'tran · ˈsend',def:'to go beyond the limits of something, to rise above what is ordinary or expected.',audio:'transcend.mp3'},
+      {word:'Solitude',pos:'noun',pron:'ˈsä · lə · ˌtüd',def:'the state of being alone, often by choice, a quiet removed from the noise of the world.',audio:'solitude.mp3'},
+      {word:'Kerfuffle',pos:'noun',pron:'kər · ˈfə · fəl',def:'a commotion or fuss, especially one caused by conflicting views, much ado about something small.',audio:'kerfuffle.mp3'},
+      {word:'Ghastly',pos:'adjective',pron:'ˈɡas(t) · lē',def:'causing great horror or shock, something so terrible the memory of it lingers long after it passes.',audio:'ghastly.mp3'},
+      {word:'Clamorous',pos:'adjective',pron:'ˈkla · mər · əs',def:'making a loud, persistent noise or outcry, the kind of noise that fills a room and refuses to leave.',audio:'clamorous.mp3'},
+      {word:'Auspicious',pos:'adjective',pron:'ô · ˈspi · shəs',def:'giving a strong sense that future success is likely, a sign that the stars are finally in your favor.',audio:'auspicious.mp3'},
     ];
     const SHOW=6;let showing=SHOW;
     function renderFallback(){
