@@ -1,19 +1,12 @@
 {
   "today": {
-    "word": "Zeitgeist",
-    "pronunciation": "zeit \u00b7 geist",
+    "word": "Bittersweet",
+    "pronunciation": "bit \u00b7 ter \u00b7 sweet",
     "part_of_speech": "noun",
-    "definition": "the general intellectual, moral, and cultural climate of an era",
-    "audio": "zeitgeist.mp3"
+    "definition": "something that is bittersweet; especially : pleasure accompanied by suffering or regret",
+    "audio": "bittersweet.mp3"
   },
   "past": [
-    {
-      "word": "Bittersweet",
-      "pos": "noun",
-      "pron": "bit \u00b7 ter \u00b7 sweet",
-      "def": "something that is bittersweet; especially : pleasure accompanied by suffering or regret",
-      "audio": "bittersweet.mp3"
-    },
     {
       "word": "Hullabaloo",
       "pos": "noun",
