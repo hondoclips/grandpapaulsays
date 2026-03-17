@@ -698,7 +698,7 @@ const SUPA_HEADERS={'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
 
 Promise.all([
   fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.true&limit=1`,{headers:SUPA_HEADERS}).then(r=>r.json()),
-  fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.false&order=posted_date.desc`,{headers:SUPA_HEADERS}).then(r=>r.json())
+  fetch(`${SUPA_URL}/rest/v1/words?is_today=eq.false&posted_date=not.is.null&order=posted_date.desc`,{headers:SUPA_HEADERS}).then(r=>r.json())
 ]).then(([todayArr, past])=>{
     const t=todayArr[0];
     if(t){
