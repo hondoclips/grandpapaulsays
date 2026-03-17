@@ -599,10 +599,12 @@ footer{
     <div class="about-text">
       <div class="label">About Me</div>
       <h2 style="display:flex;align-items:center;gap:16px;">I'm Grandpa Paul <button id="intro-btn" onclick="toggleIntro()" style="flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid #111;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Play intro"><svg id="intro-icon-play" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l7 4-7 4V2z" fill="#111"/></svg><svg id="intro-icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:none"><rect x="2.5" y="2" width="2.5" height="8" rx="1" fill="#111"/><rect x="7" y="2" width="2.5" height="8" rx="1" fill="#111"/></svg></button></h2>
-      <p>Every morning I sit down with my coffee, black, no sugar, and I pick a word. Not just any word, one worth knowing. One that's been around longer than most of us and still has something to say.</p>
-      <p>I've been doing this my whole life. My father did it. His father before him. Words to us were never just words. They were how you showed people you were paying attention.</p>
-      <p>So that's what this is. One word every day. From my cabin to wherever you are. Stick around. You might learn something.</p>
-      <p>I know I still do.</p>
+      <div id="about-paragraphs">
+        <p>Every morning I sit down with my coffee, black, no sugar, and I pick a word. Not just any word, one worth knowing. One that's been around longer than most of us and still has something to say.</p>
+        <p>I've been doing this my whole life. My father did it. His father before him. Words to us were never just words. They were how you showed people you were paying attention.</p>
+        <p>So that's what this is. One word every day. From my cabin to wherever you are. Stick around. You might learn something.</p>
+        <p>I know I still do.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -846,6 +848,22 @@ audioBtn.addEventListener('click', () => {
   }
 });
 audio.addEventListener('ended', () => audioBtn.classList.remove('playing'));
+
+// Load about text from Supabase settings
+fetch(`${SUPA_URL}/rest/v1/settings?key=in.(about_p1,about_p2,about_p3,about_p4)&order=key.asc`,{headers:SUPA_HEADERS})
+  .then(r=>r.json())
+  .then(rows=>{
+    if(!rows||!rows.length)return;
+    const map={};
+    rows.forEach(r=>map[r.key]=r.value);
+    const el=document.getElementById('about-paragraphs');
+    if(el){
+      el.innerHTML=['about_p1','about_p2','about_p3','about_p4']
+        .filter(k=>map[k])
+        .map(k=>`<p>${map[k]}</p>`)
+        .join('');
+    }
+  }).catch(()=>{});
 
 // Countdown to next word (9am UTC daily)
 function updateCountdown(){
