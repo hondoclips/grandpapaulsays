@@ -857,8 +857,9 @@ document.addEventListener('mouseleave', () => {
 
 // Audio button
 const audioBtn = document.getElementById('audio-btn');
-const audio = new Audio('tomfoolery.mp3');
+const audio = new Audio();
 audioBtn.addEventListener('click', () => {
+  if (!audio.src) return;
   if (audio.paused) {
     audio.currentTime = 0;
     audio.play();
