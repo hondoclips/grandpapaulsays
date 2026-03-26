@@ -1,95 +1,10 @@
 {
   "today": {
-    "word": "Bittersweet",
-    "pronunciation": "bit \u00b7 ter \u00b7 sweet",
+    "word": "Skullduggery",
+    "pronunciation": "skul \u00b7 dug \u00b7 ger \u00b7 y",
     "part_of_speech": "noun",
-    "definition": "pleasure that comes mixed with a little bit of sadness or regret.",
-    "audio": "bittersweet.mp3"
+    "definition": "Sneaky, underhanded tricks and scheming to get what you want.",
+    "audio": "skullduggery.mp3"
   },
-  "past": [
-    {
-      "word": "Hullabaloo",
-      "pos": "noun",
-      "pron": "hul \u00b7 la \u00b7 ba \u00b7 loo",
-      "def": "What you get when a whole crowd gets riled up and nobody can pipe down.",
-      "audio": "hullabaloo.mp3"
-    },
-    {
-      "word": "Malarkey",
-      "pos": "noun",
-      "pron": "ma \u00b7 lar \u00b7 key",
-      "def": "Talking nonsense or saying something that is not true.",
-      "audio": "malarkey.mp3"
-    },
-    {
-      "word": "Liminal",
-      "pos": "adjective",
-      "pron": "lim \u00b7 i \u00b7 nal",
-      "def": "Being on the verge of change, barely noticeable but still there.",
-      "audio": "liminal.mp3"
-    },
-    {
-      "word": "Ostentatious",
-      "pos": "adjective",
-      "pron": "os \u00b7 ten \u00b7 ta \u00b7 tious",
-      "def": "Showing off in a way that is meant to get attention.",
-      "audio": "ostentatious.mp3"
-    },
-    {
-      "word": "Poppycock",
-      "pos": "noun",
-      "pron": "pop \u00b7 py \u00b7 cock",
-      "def": "Talk that has no real meaning or sense.",
-      "audio": "poppycock.mp3"
-    },
-    {
-      "word": "Tomfoolery",
-      "pos": "noun",
-      "pron": "tom \u00b7 fool \u00b7 ery",
-      "def": "Silly or foolish behavior that is often playful.",
-      "audio": "tomfoolery.mp3"
-    },
-    {
-      "word": "Transcend",
-      "pos": "verb",
-      "pron": "tran \u00b7 send",
-      "def": "Going beyond what is normal or expected.",
-      "audio": "transcend.mp3"
-    },
-    {
-      "word": "Solitude",
-      "pos": "noun",
-      "pron": "sol \u00b7 i \u00b7 tude",
-      "def": "Being alone in a quiet and peaceful place by choice.",
-      "audio": "solitude.mp3"
-    },
-    {
-      "word": "Kerfuffle",
-      "pos": "noun",
-      "pron": "ker \u00b7 fuf \u00b7 fle",
-      "def": "A big fuss or commotion over something very small.",
-      "audio": "kerfuffle.mp3"
-    },
-    {
-      "word": "Ghastly",
-      "pos": "adjective",
-      "pron": "ghast \u00b7 ly",
-      "def": "Something that is very scary or extremely disturbing.",
-      "audio": "ghastly.mp3"
-    },
-    {
-      "word": "Clamorous",
-      "pos": "adjective",
-      "pron": "clam \u00b7 or \u00b7 ous",
-      "def": "Making a loud and persistent noise.",
-      "audio": "clamorous.mp3"
-    },
-    {
-      "word": "Auspicious",
-      "pos": "adjective",
-      "pron": "aus \u00b7 pi \u00b7 cious",
-      "def": "Showing strong signs that good things are coming.",
-      "audio": "auspicious.mp3"
-    }
-  ]
+  "past": []
 }
