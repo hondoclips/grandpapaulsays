@@ -769,7 +769,9 @@ function openModal(w){
   document.getElementById('modal-pron').textContent=w.pron;
   document.getElementById('modal-pos').textContent=w.pos;
   document.getElementById('modal-def').textContent=w.def;
-  // reset audio
+  // pause main card audio if playing
+  if(!audio.paused){audio.pause();audioBtn.classList.remove('playing');}
+  // reset modal audio
   if(modalAudio){modalAudio.pause();modalAudio=null;}
   modalAudioBtn.classList.remove('playing');
   if(w.audio){
@@ -789,8 +791,10 @@ function closeModal(){
 }
 modalAudioBtn.addEventListener('click',()=>{
   if(!modalAudio)return;
-  if(modalAudio.paused){modalAudio.currentTime=0;modalAudio.play();modalAudioBtn.classList.add('playing');}
-  else{modalAudio.pause();modalAudioBtn.classList.remove('playing');}
+  if(modalAudio.paused){
+    if(!audio.paused){audio.pause();audioBtn.classList.remove('playing');}
+    modalAudio.currentTime=0;modalAudio.play();modalAudioBtn.classList.add('playing');
+  } else {modalAudio.pause();modalAudioBtn.classList.remove('playing');}
 });
 document.getElementById('modal-close').addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
